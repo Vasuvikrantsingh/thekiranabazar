@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Inventory Information</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Inventory Information</h3>
+	<hr>
+	
+	<!-- Add a button -->
+	<a th:href="@{/information/showFormForAdd}"
+		class="btn btn-primary btn-sm mb-3">
+		Add item
+	</a>
+	
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Item</th>
+				<th>Description</th>
+				<th>DateBrought</th>
+				<th>Stock</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempInformation : ${Information}">
+			
+				<td th:text="${tempInformation.item}" />	
+				<td th:text="${tempInformation.description}" />	
+				<td th:text="${tempInformation.dateBrought}" />	
+				<td th:text="${tempInformation.stock}" />	
+				
+				<td>
+				<div class="row">
+				
+					<div class="col-small">
+					<!-- Add "update" button -->
+					<form action="#" th:action="@{/information/showFormForUpdate}" method="POST">
+					
+						<input type="hidden" name="informationItem" th:value="${tempInformation.item}" />						
+						<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">Update</button>
+
+					</form>
+					</div>
+					
+					<div class="col-small">
+					<!-- Add "delete" button/link -->					
+					<form action="#" th:action="@{/information/delete}" method="POST">
+					
+						<input type="hidden" name="informationItem" th:value="${tempInformation.id}" />						
+						<button type="submit" class="btn btn-danger btn-sm"
+								onclick="if (!(confirm('Are you sure you want to delete this item?'))) return false">
+								Delete
+						</button>
+
+					</form>
+					</div>
+				</div>	
+				</td>
+				
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+</div>
+	
+</body>
+</html>

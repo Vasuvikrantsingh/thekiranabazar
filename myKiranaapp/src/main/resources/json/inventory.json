@@ -1,0 +1,39 @@
+[
+  	{
+		"item": "rice",
+		"description": "Food",
+		"dateBrought": "Nov",
+		"stock": 10
+				
+
+    },
+    {
+		"item": "cream",
+		"description": "BeautyProduct",
+		"dateBrought": "Dec",
+		"stock": 12
+
+    },
+    {
+		"item": "colin" 
+		"description": "cleaner",
+		"dateBrought": "June",
+		"stock": 20
+				
+
+    },
+    {
+		"item": "dettol",				
+		"description": "soap",
+		"dateBrought": "August",
+		"stock": 30
+
+    },
+    {
+		"item": "everest", 
+		"description": "spice",
+		"dateBrought": "October",
+		"stock": 60
+	}
+
+]
